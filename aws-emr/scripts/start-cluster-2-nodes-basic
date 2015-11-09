@@ -1,0 +1,11 @@
+aws emr create-cluster \
+    --name "Preprocess Amazon-Reviews 2 Nodes (simple)" \
+    --instance-type m3.xlarge \
+    --release-label emr-4.1.0 \
+    --instance-count 2 \
+    --log-uri s3://amazon-reviews-full/logs \
+    --use-default-roles \
+    --applications Name=Spark \
+    --steps file://../steps/preprocess.json \
+    --configurations file://../configs/spark.json \
+    --auto-terminate
