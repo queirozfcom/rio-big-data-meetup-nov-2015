@@ -1,0 +1,10 @@
+aws emr create-cluster \
+    --name "Preprocess Amazon-Reviews 8 Nodes (Full Dataset)" \
+    --instance-type m3.xlarge \
+    --release-label emr-4.1.0 \
+    --instance-count 8 \
+    --log-uri s3://rio-big-data-meetup-nov-2015/logs8 \
+    --use-default-roles \
+    --applications Name=Spark \
+    --steps file://aws-emr/steps/preprocess-full.json \
+    --configurations file://aws-emr/configs/spark.json

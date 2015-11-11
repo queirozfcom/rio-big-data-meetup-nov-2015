@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Preprocess",
+    "Type":"CUSTOM_JAR",
+    "Jar":"command-runner.jar",
+    "Args":
+    [
+      "spark-submit",
+      "--deploy-mode", "cluster",
+      "--class", "com.queirozf.Preprocess",
+      "s3://rio-big-data-meetup-nov-2015/jars/Preprocess-assembly-1.0.jar",
+      "s3://amazon-reviews-full/*",
+      "s3://rio-big-data-meetup-nov-2015/output/"
+    ],
+    "ActionOnFailure": "TERMINATE_CLUSTER"
+  }
+]
